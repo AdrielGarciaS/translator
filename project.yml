@@ -1,0 +1,36 @@
+name: Translator
+options:
+  bundleIdPrefix: co.yuritoledo
+  deploymentTarget:
+    macOS: "26.0"
+targets:
+  Translator:
+    type: application
+    platform: macOS
+    sources: [Translator]
+    info:
+      path: Translator/Info.plist
+      properties:
+        LSUIElement: true
+        NSAccessibilityUsageDescription: Translator sends a copy command to read your selected text.
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: co.yuritoledo.translator
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: NO
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "-"
+        SWIFT_VERSION: "6.0"
+        SWIFT_STRICT_CONCURRENCY: minimal
+  TranslatorTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [TranslatorTests]
+    dependencies:
+      - target: Translator
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "-"
+        SWIFT_VERSION: "6.0"

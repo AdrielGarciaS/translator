@@ -1,0 +1,18 @@
+build/
+.DS_Store
+*.xcuserstate
+xcuserdata/
+
+# XcodeGen generates the project and app metadata from project.yml.
+Translator.xcodeproj/
+Translator/Info.plist
+
+# Never commit credentials or local signing material.
+.env
+.env.*
+*.p12
+*.pfx
+*.key
+*.pem
+*.cer
+*.mobileprovision
